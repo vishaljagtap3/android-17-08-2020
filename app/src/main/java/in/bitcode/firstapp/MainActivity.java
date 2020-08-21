@@ -1,6 +1,7 @@
 package in.bitcode.firstapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +16,7 @@ public class MainActivity extends Activity {
 
     private TextView txtInfo;
     private EditText edtInfo;
-    private Button btnSet;
+    private Button btnSet, btnNext;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,17 +42,37 @@ public class MainActivity extends Activity {
         btnSet.setText("Set Info");
         linearLayout.addView( btnSet );
 
+
+        btnNext = new Button( this );
+        btnNext.setText("Next Activity");
+        linearLayout.addView( btnNext );
+
+        btnNext.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //code to start ActNext
+                Intent intent = new Intent( MainActivity.this, ActNew.class );
+                startActivity( intent );
+            }
+        });
+
         //set up listener to button
         //separate listener
-        //btnSet.setOnClickListener( new BtnSetClickListener() );
+        btnSet.setOnClickListener( new BtnSetClickListener() );
 
         //set up listener to textView
         //separate listener
         //txtInfo.setOnClickListener( new TxtInfoClickListener() );
+        txtInfo.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txtInfo.setText("");
+            }
+        });
 
-        CommonClickListener commonClickListener = new CommonClickListener();
+        /*CommonClickListener commonClickListener = new CommonClickListener();
         btnSet.setOnClickListener( commonClickListener );
-        txtInfo.setOnClickListener( commonClickListener );
+        txtInfo.setOnClickListener( commonClickListener );*/
 
         setContentView( linearLayout );
         //setContentView( txtInfo );
