@@ -5,6 +5,7 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/txtData"
         android:textColor="#FF0000"
         android:textSize="30px"
         android:text="ActNew"
@@ -12,13 +13,22 @@
         android:layout_height="wrap_content"/>
 
     <EditText
+        android:id="@+id/edtData"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter something"/>
 
     <Button
+        android:id="@+id/btnSetData"
         android:text="Set Data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Set and Finish"
+        android:visibility="visible" />
 
 </LinearLayout>

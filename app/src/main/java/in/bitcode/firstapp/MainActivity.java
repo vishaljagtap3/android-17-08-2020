@@ -18,6 +18,7 @@ public class MainActivity extends Activity {
     private EditText edtInfo;
     private Button btnSet, btnNext;
 
+    //Lifecycle method of Activity
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +30,7 @@ public class MainActivity extends Activity {
 
         //Set up UI
         txtInfo = new TextView( this );
-        txtInfo.setText("Hello Android!");
+        txtInfo.setText(R.string.welcome_message);
         txtInfo.setTextColor( Color.rgb( 255, 0, 0 ) );
         txtInfo.setTextSize( 40 );
         linearLayout.addView( txtInfo );
