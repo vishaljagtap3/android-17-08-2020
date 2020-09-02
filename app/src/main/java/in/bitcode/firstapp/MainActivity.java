@@ -53,7 +53,13 @@ public class MainActivity extends Activity {
             public void onClick(View view) {
                 //code to start ActNext
                 Intent intent = new Intent( MainActivity.this, ActNew.class );
-                startActivity( intent );
+
+                //put data into the intent, Extra data
+                intent.putExtra("name", edtInfo.getText().toString() );
+                intent.putExtra("phone", 1000123121 );
+
+                //startActivity( intent );
+                startActivityForResult( intent, 1 );
             }
         });
 
@@ -105,5 +111,17 @@ public class MainActivity extends Activity {
         public void onClick(View view) {
             txtInfo.setText("");
         }
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if( data != null ) {
+            Bundle bundleResults = data.getExtras();
+            String result = bundleResults.getString("result", "No Results!");
+            txtInfo.setText(result);
+        }
+
     }
 }
