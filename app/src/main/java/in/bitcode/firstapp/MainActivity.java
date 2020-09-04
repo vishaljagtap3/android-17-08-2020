@@ -94,7 +94,6 @@ public class MainActivity extends Activity {
             if( view == txtInfo ) {
                 txtInfo.setText("");
             }
-
         }
     }
 
